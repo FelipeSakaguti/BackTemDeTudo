@@ -1,24 +1,30 @@
 const express = require('express');
 
-const VendedoresController = require('./controllers/VendedoresConstroller');
+const VendedoresController = require('./controllers/VendedoresController');
 const VendedorController = require('./controllers/VendedorController');
-const ClienteListConstroller = require('./controllers/ClienteListController');
+const ClienteListController = require('./controllers/ClienteListController');
 const ClienteController = require('./controllers/ClienteController');
+const ProdutoController = require('./controllers/ProdutoController');
+const ProdutoListController = require('./controllers/ProdutoListController');
 
 const routes = express.Router();
 
 routes.get('/vendedores', VendedoresController.index );
+routes.get('/vendedores/:id', VendedorController.index );
+routes.post('/vendedores', VendedorController.create );
+routes.put('/vendedores/:id', VendedorController.update );
+routes.delete('/vendedores/:id', VendedorController.delete );
 
-routes.post('/vendedor', VendedorController.create );
-routes.put('/vendedor', VendedorController.update );
-routes.get('/vendedor', VendedorController.index );
-routes.delete('/vendedor', VendedorController.delete );
-
-routes.get('/clientes', ClienteListConstroller.index );
+routes.get('/clientes', ClienteListController.index );
+routes.get('/clientes/:id/', ClienteController.index );
 routes.post('/clientes/', ClienteController.create );
 routes.put('/clientes/:id/', ClienteController.update );
-routes.get('/clientes/:id/', ClienteController.index );
 routes.delete('/clientes/:id/', ClienteController.delete );
 
+routes.get('/produtos', ProdutoListController.index );
+routes.get('/produtos/:id/', ProdutoController.index );
+routes.post('/produtos/', ProdutoController.create );
+routes.put('/produtos/:id/', ProdutoController.update );
+routes.delete('/produtos/:id/', ProdutoController.delete );
 
 module.exports = routes;

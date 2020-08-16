@@ -13,7 +13,7 @@ module.exports = {
     },
 
     async index(request, response) {
-        const filters = request.query;
+        const filters = request.params;
 
         const vendedor = await db('vendedores')
             .where('vendedores.id','=', filters.id )
@@ -27,7 +27,7 @@ module.exports = {
     },
 
     async delete(request, response) {
-        const { id } = request.query;
+        const { id } = request.params;
 
         const vendedor = await db('vendedores')
             .where('id', id )
@@ -41,7 +41,7 @@ module.exports = {
     },
 
     async update(request, response) {
-        const { id } = request.query;
+        const { id } = request.params;
         const { nome } = request.body;
 
         const vendedor = await db('vendedores')
