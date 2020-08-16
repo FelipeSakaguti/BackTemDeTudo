@@ -8,7 +8,7 @@ exports.up = function(knex) {
         table.decimal('qtd');
         table.decimal('custo_unit');
         table.decimal('valor_venda');
-        table.timestamp('vendido_em').defaultTo('now()');
+        table.timestamp('vendido_em').defaultTo('CURRENT_TIMESTAMP');
 
         table.foreign('id_cliente').references('id').inTable('clientes');
         table.foreign('id_produto').references('id').inTable('produtos');

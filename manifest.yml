@@ -1,0 +1,11 @@
+
+applications:
+- name: BackendTDT
+  buildpack: sdk-for-nodejs
+  command: npm start
+  instances: 1
+  memory: 256M
+  random-route: true
+  env:
+    OPTIME_MEMORY: true
+  
