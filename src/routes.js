@@ -6,6 +6,8 @@ const ClienteListController = require('./controllers/ClienteListController');
 const ClienteController = require('./controllers/ClienteController');
 const ProdutoController = require('./controllers/ProdutoController');
 const ProdutoListController = require('./controllers/ProdutoListController');
+const VendaController = require('./controllers/VendaController');
+const VendaListController = require('./controllers/VendaListController');
 
 const routes = express.Router();
 
@@ -26,5 +28,11 @@ routes.get('/produtos/:id/', ProdutoController.index );
 routes.post('/produtos/', ProdutoController.create );
 routes.put('/produtos/:id/', ProdutoController.update );
 routes.delete('/produtos/:id/', ProdutoController.delete );
+
+routes.get('/vendas', VendaListController.index );
+routes.get('/vendas/:id/', VendaController.index );
+routes.post('/vendas/', VendaController.create );
+routes.put('/vendas/:id/', VendaController.update );
+routes.delete('/vendas/:id/', VendaController.delete );
 
 module.exports = routes;
