@@ -48,8 +48,6 @@ module.exports = {
             .where('vendedores.id','=', id )
             .select('*');
 
-        console.log(vendedor);
-
         if(!id || !vendedor[0]){
             return response.status(400).json({ error: 'ID inexistente'})
         }
