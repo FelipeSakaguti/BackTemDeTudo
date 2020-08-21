@@ -4,7 +4,7 @@ applications:
   buildpack: sdk-for-nodejs
   command: npm start
   instances: 1
-  memory: 256M
+  memory: 64M
   random-route: true
   env:
     OPTIME_MEMORY: true

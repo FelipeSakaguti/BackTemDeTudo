@@ -8,6 +8,7 @@ const ProdutoController = require('./controllers/ProdutoController');
 const ProdutoListController = require('./controllers/ProdutoListController');
 const VendaController = require('./controllers/VendaController');
 const VendaListController = require('./controllers/VendaListController');
+const DashboardController = require('./controllers/DashboardController');
 
 const routes = express.Router();
 
@@ -34,5 +35,8 @@ routes.get('/vendas/:id/', VendaController.index );
 routes.post('/vendas/', VendaController.create );
 routes.put('/vendas/:id/', VendaController.update );
 routes.delete('/vendas/:id/', VendaController.delete );
+
+routes.get('/dash/bestSeller', DashboardController.bestSeller );
+routes.get('/dash/bestCustomer', DashboardController.bestCustomer );
 
 module.exports = routes;

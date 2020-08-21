@@ -10,8 +10,6 @@ module.exports = {
 
         if(!nome){
             const vendedores = await db('vendedores')
-                .limit(10)
-                .offset((page-1)*10)
                 .andWhere('active',"=",true)
                 .select('*');
 
@@ -22,8 +20,6 @@ module.exports = {
         const vendedores = await db('vendedores')
             .where('vendedores.nome','LIKE', `%${nome}%`)
             .andWhere('active',"=",true)
-            .limit(10)
-            .offset((page-1)*10)
             .select('*');
 
         return response.json( vendedores );

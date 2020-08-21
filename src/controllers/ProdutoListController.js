@@ -10,8 +10,9 @@ module.exports = {
 
         if(!nome){
             const produtos = await db('produtos')
-                .limit(10)
-                .offset((page-1)*10)
+                // .limit(30)
+                // .offset((page-1)*30)
+                .orderBy('id','desc')
                 .select('*');
 
             return response.json( produtos );
@@ -19,8 +20,8 @@ module.exports = {
         
         const produtos = await db('produtos')
             .where('nome','LIKE', `%${nome}%`)
-            .limit(10)
-            .offset((page-1)*10)
+            // .limit(30)
+            // .offset((page-1)*30)
             .select('*');
 
         return response.json( produtos );

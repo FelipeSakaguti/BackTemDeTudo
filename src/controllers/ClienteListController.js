@@ -10,8 +10,6 @@ module.exports = {
 
         if(!nome){
             const clientes = await db('clientes')
-                .limit(10)
-                .offset((page-1)*10)
                 .select('*');
 
             return response.json( clientes );
@@ -19,8 +17,6 @@ module.exports = {
         
         const clientes = await db('clientes')
             .where('nome','LIKE', `%${nome}%`)
-            .limit(10)
-            .offset((page-1)*10)
             .select('*');
 
         return response.json( clientes );

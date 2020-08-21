@@ -12,8 +12,6 @@ module.exports = {
             .leftJoin('clientes', 'vendas.id_cliente', '=', 'clientes.id')
             .leftJoin('produtos', 'vendas.id_produto', '=', 'produtos.id')
             .leftJoin('vendedores', 'vendas.id_vendedor', '=', 'vendedores.id')
-            .limit(10)
-            .offset((page-1)*10)
             .select(['vendas.*', 'clientes.nome as nome_cliente', 'produtos.nome as nome_produto', 'vendedores.nome as nome_vendedor']);
 
         return response.json( vendas );
